@@ -1,0 +1,354 @@
+//	You can use this symbols for setting colors:
+//	"\x01" = ""(white), "\x02" = "" (don't works), "\x03" = "" (gray), "\x04" = "" (green), "\x05" = "" (black), "\x06" = "" (white)
+//	custom colors:
+//	"\x07" = "" (for RrGgBb), "\x08" = "" (for RrGgBbAa)
+"Phrases"
+{	// Chat
+	"Prefix"
+	{
+		"en"	"[Equipment] "
+	}
+	"AlreadyHave"
+	{
+		"#format"	"{1:t}"
+		"en"	"You already have the {1}"
+	}
+	"HaveChosen"
+	{
+		"#format"	"{1:t}"
+		"en"	"You have chosen {1}"
+	}
+	"AddedAmmo"
+	{
+		"#format"	"{1:t},{2:d}"
+		"en"	"You have chosen ammo {1} (+{2})"
+	}
+
+	// Menus
+	"Title"
+	{
+		"en"	"[NMRiH] Equipment"
+	}
+	"items"
+	{
+		"en"	"pcs"
+	}
+	"Categories"
+	{
+		"en"	"Categories"
+	}
+	"Pistols"
+	{
+		"en"	"Pistols"
+	}
+	"Rifles"
+	{
+		"en"	"Rifles"
+	}
+	"Semiauto"
+	{
+		"en"	"Semi-automatic"
+	}
+	"Auto"
+	{
+		"en"	"Automatic"
+	}
+	"Shotguns"
+	{
+		"en"	"Shotguns"
+	}
+	"Melee"
+	{
+		"en"	"Melee"
+	}
+	"Tools"
+	{
+		"en"	"Tools"
+	}
+	"Medicines"
+	{
+		"en"	"Medicines"
+	}
+	"Explosives"
+	{
+		"en"	"Explosives"
+	}
+	"Ammo"
+	{
+		"en"	"Ammo"
+	}
+
+	// both
+	"item_gene_therapy"
+	{
+		"en"	"Gene therapy"
+	}
+	"item_pills"
+	{
+		"en"	"Phalanx pills"
+	}
+	"item_first_aid"
+	{
+		"en"	"First Aid kit"
+	}
+	"item_bandages"
+	{
+		"en"	"Bandages"
+	}
+	"tool_welder"
+	{
+		"en"	"Cutting torch"
+	}
+	"tool_barricade"
+	{
+		"en"	"Barricade hammer"
+	}
+	"tool_extinguisher"
+	{
+		"en"	"Fire extinguisher"
+	}
+	"tool_flare_gun"
+	{
+		"en"	"Flare gun"
+	}
+	"item_maglite"
+	{
+		"en"	"Maglite"
+	}
+	"item_walkietalkie"
+	{
+		"en"	"Walkie Talkie"
+	}
+	"fa_1911"
+	{
+		"en"	"Colt 1911 National Match"
+	}
+	"fa_glock17"
+	{
+		"en"	"Glock 17"
+	}
+	"fa_m92fs"
+	{
+		"en"	"Beretta M92FS"
+	}
+	"fa_mkiii"
+	{
+		"en"	"Ruger MK III"
+	}
+	"fa_sw686"
+	{
+		"en"	"Smith & Wesson 686"
+	}
+	"fa_cz858"
+	{
+		"en"	"Sa vz.58P"
+	}
+	"fa_fnfal"
+	{
+		"en"	"FN FAL"
+	}
+	"fa_m16a4"
+	{
+		"en"	"M16A4 ACOG"
+	}
+	"fa_m16a4_carryhandle"
+	{
+		"en"	"M16A4"
+	}
+	"fa_sks"
+	{
+		"en"	"Simonov SKS"
+	}
+	"fa_sks_nobayo"
+	{
+		"en"	"Simonov SKS w/o bayonet"
+	}
+	"fa_1022"
+	{
+		"en"	"Ruger 10/22"
+	}
+	"fa_1022_25mag"
+	{
+		"en"	"Ruger 10/22 with BX-25"
+	}
+	"fa_winchester1892"
+	{
+		"en"	"Winchester 1894"
+	}
+	"fa_jae700"
+	{
+		"en"	"Remigton JAE-700"
+	}
+	"fa_sako85"
+	{
+		"en"	"Sako 85"
+	}
+	"fa_sako85_ironsights"
+	{
+		"en"	"Sako 85 (ironsights)"
+	}
+	"bow_deerhunter"
+	{
+		"en"	"PSE Deer Hunter"
+	}
+	"fa_870"
+	{
+		"en"	"Remington 870"
+	}
+	"fa_500a"
+	{
+		"en"	"Mossberg 500A"
+	}
+	"fa_superx3"
+	{
+		"en"	"Winchester Super X3"
+	}
+	"fa_sv10"
+	{
+		"en"	"Beretta Perennia SV10"
+	}
+	"fa_mp5a3"
+	{
+		"en"	"HK MP5A3"
+	}
+	"fa_mac10"
+	{
+		"en"	"Ingram MAC-10"
+	}
+	"me_chainsaw"
+	{
+		"en"	"Chainsaw"
+	}
+	"me_abrasivesaw"
+	{
+		"en"	"Abrasive saw"
+	}
+	"me_fubar"
+	{
+		"en"	"FUBAR"
+	}
+	"me_axe_fire"
+	{
+		"en"	"Fire axe"
+	}
+	"me_sledge"
+	{
+		"en"	"Sledgehammer"
+	}
+	"me_pipe_lead"
+	{
+		"en"	"Lead pipe"
+	}
+	"me_crowbar"
+	{
+		"en"	"Crowbar"
+	}
+	"me_pickaxe"
+	{
+		"en"	"Pickaxe"
+	}
+	"me_machete"
+	{
+		"en"	"Machete"
+	}
+	"me_cleaver"
+	{
+		"en"	"Cleaver"
+	}
+	"me_bat_metal"
+	{
+		"en"	"Baseball bat"
+	}
+	"me_hatchet"
+	{
+		"en"	"Hatchet"
+	}
+	"me_shovel"
+	{
+		"en"	"Shovel"
+	}
+	"me_etool"
+	{
+		"en"	"Entrenching tool"
+	}
+	"me_wrench"
+	{
+		"en"	"Monkey wrench"
+	}
+	"me_kitknife"
+	{
+		"en"	"Kitchen knife"
+	}
+	"exp_molotov"
+	{
+		"en"	"Molotov cocktail"
+	}
+	"exp_grenade"
+	{
+		"en"	"M67 frag grenade"
+	}
+	"exp_tnt"
+	{
+		"en"	"TNT"
+	}
+	"ammobox_9mm"
+	{
+		"en"	"9mm"
+	}
+	"ammobox_12gauge"
+	{
+		"en"	"12 Gauge"
+	}
+	"ammobox_22lr"
+	{
+		"en"	".22 LR"
+	}
+	"ammobox_45acp"
+	{
+		"en"	".45 ACP"
+	}
+	"ammobox_308"
+	{
+		"en"	".308"
+	}
+	"ammobox_357"
+	{
+		"en"	".357"
+	}
+	"ammobox_556"
+	{
+		"en"	"5.56mm"
+	}
+	"ammobox_762mm"
+	{
+		"en"	"7.62x39"
+	}
+	"ammobox_arrow"
+	{
+		"en"	"Arrow"
+	}
+	"ammobox_board"
+	{
+		"en"	"Board"
+	}
+	"ammobox_flare"
+	{
+		"en"	"Flare"
+	}
+	"ammobox_fuel"
+	{
+		"en"	"Fuel"
+	}
+	"ammobox_grenades"
+	{
+		"en"	"Grenade M67"
+	}
+	"ammobox_molotov"
+	{
+		"en"	"Molotov"
+	}
+	"ammobox_tnt"
+	{
+		"en"	"TNT"
+	}
+}
