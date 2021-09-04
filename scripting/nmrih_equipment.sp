@@ -4,13 +4,20 @@
 #include <sdkhooks>
 #include <sdktools_functions>
 #include <sdktools_entinput>
-/*
+
 #undef MAXPLAYERS
-#define MAXPLAYERS = 8
-*/
+#define MAXPLAYERS 8
+
+#if SOURCEMOD_V_MINOR > 10
+	#define PL_NAME	"[NMRiH] Equipment"
+	#define PL_VER	"1.0.1 2021.09.04"
+#endif
+
 static const char
+#if SOURCEMOD_V_MINOR < 11
 	PL_NAME[]		= "[NMRiH] Equipment",
-	PL_VER[]		= "1.0.0 2020.04.23",
+	PL_VER[]		= "1.0.1 2021.09.04",
+#endif
 
 	MAP_BANNED[]	= "nmo_dodgeball_",
 	EQUIPMENT_TYPE[][] =
@@ -261,7 +268,7 @@ public void OnPluginStart()
 		SetFailState("Can't find offset 'm_iAmmo'!");
 	if((iWpnOffset		= FindSendPropInfo("CNMRiH_Player", "m_hMyWeapons")) < 1)	// 48 types
 		SetFailState("Can't find offset 'm_hMyWeapons'!");
-	if((iWeightOffset = FindSendPropInfo("CNMRiH_Player", "_carriedWeight")) < 1)
+	if((iWeightOffset	= FindSendPropInfo("CNMRiH_Player", "_carriedWeight")) < 1)
 		SetFailState("Can't find offset '_carriedWeight'!");
 
 	LoadTranslations("nmrih_equipment.phrases.txt");
@@ -290,6 +297,7 @@ public void OnPluginStart()
 		cvar.AddChangeHook(CVarChanged_MaxCarry);
 		iMaxCarry = cvar.IntValue;
 	}
+
 	if((cvar = FindConVar("sv_zombie_health")))	// default: 500 (in nightmare: 1000)
 	{
 		cvar.AddChangeHook(CVarChanged_ZHealth);
@@ -370,7 +378,7 @@ public void Hook_WeaponEvent(int client, int weapon)
 
 public void RequestFrame_Callback(any client)
 {
-	if(!(client = GetClientOfUserId(client))) return;
+	if(!(client = GetClientOfUserId(client)) && IsPlayerAlive(client)) return;
 
 	GetCarriedWeapons(client);
 	if(iInMenu[client] != -1) hMenu[iInMenu[client]].Display(client, MENU_TIME_FOREVER);
@@ -380,7 +388,7 @@ public void RequestFrame_Callback(any client)
 public void Event_Spawn(Event event, const char[] name, bool dontBroadcast)
 {
 	static int client;
-	if(bSpawn && (client = GetClientOfUserId(event.GetInt("userid"))) && IsPlayerAlive(client))
+	if(bSpawn && (client = GetClientOfUserId(event.GetInt("userid"))))
 		SendMenu(client);
 }
 
@@ -464,7 +472,7 @@ public int Menu_Categories(Menu menu, MenuAction action, int client, int param)
 		case MenuAction_Select:
 		{
 			iInMenu[client] = ORDER[param];
-			hMenu[ORDER[param]].Display(client, MENU_TIME_FOREVER);
+			if(IsPlayerAlive(client)) hMenu[ORDER[param]].Display(client, MENU_TIME_FOREVER);
 		}
 		case MenuAction_Cancel:
 			if(param == MenuCancel_Exit) iInMenu[client] = -1;
@@ -492,6 +500,9 @@ public int Menu_Weapon(Menu menu, MenuAction action, int client, int param)
 			return RedrawMenuItem(FillMenuItem(client, param+FIST[iInMenu[client]-1]));
 		case MenuAction_Select:
 		{
+			if(!IsPlayerAlive(client))
+				return 0;
+
 			static int wpn;
 			item = param + FIST[iInMenu[client]-1];
 			if(item < 53)
@@ -514,8 +525,10 @@ public int Menu_Weapon(Menu menu, MenuAction action, int client, int param)
 		}
 		case MenuAction_Cancel:
 		{
-			if(param == MenuCancel_ExitBack)	SendMenu(client);
-			else if(param == MenuCancel_Exit)	iInMenu[client] = -1;
+			if(param == MenuCancel_Exit)
+				iInMenu[client] = -1;
+			else if(param == MenuCancel_ExitBack && IsPlayerAlive(client))
+				SendMenu(client);
 		}
 	}
 
