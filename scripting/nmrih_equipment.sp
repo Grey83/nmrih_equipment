@@ -8,16 +8,9 @@
 #undef MAXPLAYERS
 #define MAXPLAYERS 8
 
-#if SOURCEMOD_V_MINOR > 10
-	#define PL_NAME	"[NMRiH] Equipment"
-	#define PL_VER	"1.0.1 2021.09.04"
-#endif
-
 static const char
-#if SOURCEMOD_V_MINOR < 11
 	PL_NAME[]		= "[NMRiH] Equipment",
-	PL_VER[]		= "1.0.1 2021.09.04",
-#endif
+	PL_VER[]		= "1.0.1_20.11.2021",
 
 	MAP_BANNED[]	= "nmo_dodgeball_",
 	EQUIPMENT_TYPE[][] =
@@ -378,7 +371,7 @@ public void Hook_WeaponEvent(int client, int weapon)
 
 public void RequestFrame_Callback(any client)
 {
-	if(!(client = GetClientOfUserId(client)) && IsPlayerAlive(client)) return;
+	if(!(client = GetClientOfUserId(client)) || !IsPlayerAlive(client)) return;
 
 	GetCarriedWeapons(client);
 	if(iInMenu[client] != -1) hMenu[iInMenu[client]].Display(client, MENU_TIME_FOREVER);
